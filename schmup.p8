@@ -8,7 +8,10 @@ function _init()
 		direction=0
 	}
 	
+	trailcount = 60
+	
 	lines = {}
+	trail = {}
 end
 
 function _update60()
@@ -17,6 +20,7 @@ function _update60()
 	if (btn(2)) player.y -=1
 	if (btn(3)) player.y +=1
 	if (not btn(0) and not btn(1)) player.direction = 0 
+	trailcount -= 1
 end
 
 function _draw()
@@ -42,7 +46,26 @@ function draw_player(direction)
 end
 
 function speed_line()
-	sspr(127,0,1,24,40,40)
+	if (trailcount == 0) do 
+		trailcount = 200
+		add(trail, {x = 40, y=10})
+	end
+	
+	for i=1,count(trail),1 do
+		pq(i)
+		if (not i==0) do
+			pq("test")
+			trail[i].y -= 1
+			sspr(127,0,1,24,trail[i].x, trail[i].y)
+		end
+	end
+	
+
+	sspr(127,0,1,24,40,trailcount)
+end
+
+function pq(text)
+	printh(text, "log")
 end
 __gfx__
 8888888881188888888888888888888888888888888888888811118888888888888888111188888888888880000000000000000000000000000000000000000e
