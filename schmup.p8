@@ -56,6 +56,23 @@ function draw_flames()
 	sspr()
 end
 
+
+-->8
+function anim(o,sf,nf,sp,fl)
+  if(not o.a_ct) o.a_ct=0
+  if(not o.a_st) o.a_st=0
+
+  o.a_ct+=1
+
+  if(o.a_ct%(30/sp)==0) then
+    o.a_st+=1
+    if(o.a_st==nf) o.a_st=0
+  end
+
+  o.a_fr=sf+o.a_st
+  spr(o.a_fr,o.x,o.y,1,1,fl)
+end
+
 function pq(text)
 	printh(text, "log")
 end
