@@ -5,3 +5,5 @@ A schmup made in the Pico 8 fantasy console.
 
 ### Ressources
 - https://saint11.org/blog/pixel-art-tutorials/
+- Animation code https://www.lexaloffle.com/bbs/?tid=3115&autoplay=1#pp
+- 
